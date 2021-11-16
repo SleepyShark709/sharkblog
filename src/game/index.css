@@ -1,0 +1,26 @@
+.game-container {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.game-body {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: contain;
+    transition: left 1000ms;
+}
+
+.game-circle {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    border-radius: 50%;
+    top: 45%;
+    /*background-color: rgb(238,248,0);*/
+    position: absolute;
+}
