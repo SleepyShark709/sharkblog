@@ -3,15 +3,15 @@ import Game from './game/index'
 import {useState} from "react";
 
 function App() {
-  const [label, setLabel ] = useState('进入游戏')
+  const [label, setLabel ] = useState(0)
   const gameEnter = () => {
     let canvas = document.querySelector('#id-canvas')
-    if (label === '进入游戏') {
+    if (label === 0) {
       canvas.style.display = 'unset'
-      setLabel('关闭游戏')
+      setLabel(1)
     } else {
       canvas.style.display = 'none'
-      setLabel('进入游戏')
+      setLabel(0)
     }
   }
 
@@ -23,8 +23,11 @@ function App() {
         <p>
           ❤我爱豆豆❤
         </p>
-          <Game/>
-        <button onClick={gameEnter} id={"game-enter"}>{label}</button>
+        {
+          label === 0 ? <Game /> : null
+        }
+        {/*label 为 0 的时候是进入游戏（关闭中），为 1 的时候是关闭游戏（游戏中）*/}
+        <button style={label === 1 ? {marginTop: '100px'} : null} onClick={gameEnter} id={"game-enter"}>{label === 0 ? '进入游戏' : '关闭游戏'}</button>
       </header>
     </div>
   );
