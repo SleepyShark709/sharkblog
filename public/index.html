@@ -25,10 +25,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>SHARK</title>
+    <style>
+      #id-canvas {
+        position: absolute;
+        top: 0;
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <canvas id="id-canvas" width="512" height="512"></canvas>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +47,18 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="./game/game.js"></script>
+    <script src="./game/game_image.js"></script>
+    <script src="./game/game_scene.js"></script>
+    <script src="./game/utils.js"></script>
+
+    <script src="./scene/main/man.js"></script>
+    <script src="./scene/main/pac.js"></script>
+    <script src="./scene/main/scene.js"></script>
+
+    <script src="./scene/end/label.js"></script>
+    <script src="./scene/end/scene_end.js"></script>
+
+    <script src="./main.js"></script>
   </body>
 </html>

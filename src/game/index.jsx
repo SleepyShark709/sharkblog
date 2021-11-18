@@ -28,6 +28,8 @@ const Game = () => {
                     return <img src={Dou} style={{right: `${2.8 + 10 * index}%`}} key={index} className={"game-circle"} alt={'dou'}/>
 
             })}
+            <div>
+            </div>
         </div>
     )
 }
