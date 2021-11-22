@@ -3,6 +3,7 @@ class GameScene {
         this.game = game
         this.elements = []
         this.pacElements= []
+        this.blockElements = []
     }
     static new(game) {
         var i = new this(game)
@@ -20,12 +21,11 @@ class GameScene {
 
         }
     }
-
-    popElement() {
-        this.elements.pop()
-    }
-    popPacElement() {
-        this.pacElements.pop()
+    addBlockElements(imgs) {
+        for (let img of imgs) {
+            img.scene = this
+            this.blockElements.push(img)
+        }
     }
     draw() {
         for (let i = 0; i < this.elements.length; i++) {
@@ -36,6 +36,10 @@ class GameScene {
             let e = this.pacElements[i]
             e.draw()
         }
+        for (let i = 0; i < this.blockElements.length; i++) {
+            let e = this.blockElements[i]
+            e.draw()
+        }
     }
     update() {
         for (let i = 0; i < this.elements.length; i++) {
@@ -44,6 +48,10 @@ class GameScene {
         }
         for (let i = 0; i < this.pacElements.length; i++) {
             let e = this.pacElements[i]
+            e.update()
+        }
+        for (let i = 0; i < this.blockElements.length; i++) {
+            let e = this.blockElements[i]
             e.update()
         }
     }

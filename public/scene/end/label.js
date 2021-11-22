@@ -10,7 +10,6 @@ class GameLabel {
     }
     draw() {
         this.game.context.font = "20px serif";
-        this.game.context.fillStyle = '#ffffff'
         this.game.context.fillText(this.text, this.x, this.y)
     }
     update() {
