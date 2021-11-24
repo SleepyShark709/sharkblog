@@ -25,6 +25,7 @@ class Man extends GameImage{
         // if (this.speed <= 0) {
         //     this.speed = 10
         // }
+
         this.pengzhuang()
     }
     moveLeft() {

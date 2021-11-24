@@ -44,7 +44,7 @@ class Scene extends GameScene {
             for (let j = 0; j < 10; j++) {
                 // x
                 let x = 50 * j + 20
-                let y = 100 * i + 35
+                let y = 100 * i + 25
                 let p = new Pac(this.game)
                 p.x = x
                 p.y = y
@@ -71,5 +71,6 @@ class Scene extends GameScene {
     }
     update() {
         super.update()
+
     }
 }
