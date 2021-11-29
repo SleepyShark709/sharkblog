@@ -22,18 +22,38 @@ class Scene extends GameScene {
         this.addWidthBlock(addWidthBtn)
         this.addHeightBlock(addHeightBtn)
         this.moveBlock()
+        this.deleteBlock()
+    }
+
+    deleteBlock() {
+        let Blocks = this.blockElements
+        this.game.canvas.onmousedown =  (e) => {
+            if (e.button === 2) {
+                var x = event.offsetX
+                var y = event.offsetY
+                for (let i = 0; i < Blocks.length; i++) {
+                    let b = Blocks[i]
+                    if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+                        // 删除b
+                        this.deleteBlockElement(i)
+                    }
+                }
+            }
+        }
     }
 
     moveBlock() {
         let game = this.game
         let Blocks = this.blockArray
         game.canvas.addEventListener('mousedown', (event) => {
-            var x = event.offsetX
-            var y = event.offsetY
-            for (let i = 0; i < Blocks.length; i++) {
-                let b = Blocks[i]
-                if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
-                    b.blockDrag = true
+            if (event.button === 0) {
+                var x = event.offsetX
+                var y = event.offsetY
+                for (let i = 0; i < Blocks.length; i++) {
+                    let b = Blocks[i]
+                    if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+                        b.blockDrag = true
+                    }
                 }
             }
         })

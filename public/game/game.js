@@ -8,6 +8,10 @@ class Game {
         this.keydowns = {}
         this.canvas = document.querySelector('#id-canvas')
         this.context = this.canvas.getContext('2d')
+        this.canvas.oncontextmenu = function () {
+            // 禁用右键
+            return false
+        }
         window.addEventListener('keydown', (event) => {
             this.keydowns[event.key] = true
         })
