@@ -5,7 +5,7 @@ import {useState} from "react";
 function App() {
   const [label, setLabel ] = useState(0)
   const gameEnter = () => {
-    let canvas = document.querySelector('#id-canvas')
+    let canvas = document.querySelector('#id-canvas-container')
     if (label === 0) {
       canvas.style.display = 'unset'
       setLabel(1)

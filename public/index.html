@@ -26,18 +26,28 @@
     -->
     <title>SHARK</title>
     <style>
-      #id-canvas {
+      #id-canvas-container {
+        display: none;
         position: absolute;
         top: 0;
-        display: none;
-        background-color: #d2d2d2;
+      }
+      #id-canvas {
+        border: black 1px solid;
+        background-color: rgb(62,0,125);
       }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <canvas id="id-canvas" width="512" height="512"></canvas>
+    <div id="id-canvas-container">
+      <canvas id="id-canvas" width="512" height="512"></canvas>
+      <hr>
+      <button id="button-width">添加横向墙壁</button>
+      <button id="button-height">添加纵向墙壁</button>
+      <button id="button-edit">编辑</button>
+    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

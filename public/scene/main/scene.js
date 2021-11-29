@@ -17,7 +17,78 @@ class Scene extends GameScene {
         this.addElement(this.man)
         this.addPacElements(this.pacArray)
         this.addBlockElements(this.blockArray)
+        let addWidthBtn = document.querySelector('#button-width')
+        let addHeightBtn = document.querySelector('#button-height')
+        this.addWidthBlock(addWidthBtn)
+        this.addHeightBlock(addHeightBtn)
+        this.moveBlock()
     }
+
+    moveBlock() {
+        let game = this.game
+        let Blocks = this.blockArray
+        game.canvas.addEventListener('mousedown', (event) => {
+            var x = event.offsetX
+            var y = event.offsetY
+            for (let i = 0; i < Blocks.length; i++) {
+                let b = Blocks[i]
+                if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+                    b.blockDrag = true
+                }
+            }
+        })
+        game.canvas.addEventListener('mousemove', (event) => {
+            var x = event.offsetX
+            var y = event.offsetY
+            for (let i = 0; i < Blocks.length; i++) {
+                let b = Blocks[i]
+                if (b.blockDrag === true) {
+                    b.x = x
+                    b.y = y
+                }
+            }
+        })
+        game.canvas.addEventListener('mouseup', (event) => {
+            var x = event.offsetX
+            var y = event.offsetY
+            for (let i = 0; i < Blocks.length; i++) {
+                let b = Blocks[i]
+                if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+                    b.blockDrag = false
+                }
+            }
+        })
+    }
+
+    addWidthBlock(btn) {
+        btn.addEventListener('click', () => {
+            let b = new Block(this.game, 'block_w')
+            b.x = 0
+            b.y = 0
+            // map_w.push(o)
+            // this.createBlockArray()
+            this.blockArray.push(b)
+            this.addBlockElements([b])
+        })
+    }
+
+    addHeightBlock(btn) {
+        btn.addEventListener('click', () => {
+            let b = new Block(this.game, 'block')
+            b.x = 0
+            b.y = 0
+            // let o = {
+            //     x: 0,
+            //     y: 0,
+            // }
+            // map_h.push(o)
+            // this.createBlockArray()
+            this.blockArray.push(b)
+
+            this.addBlockElements([b])
+        })
+    }
+
     createBlockArray() {
         let bh = map_h
         let bw = map_w
@@ -44,7 +115,7 @@ class Scene extends GameScene {
             for (let j = 0; j < 10; j++) {
                 // x
                 let x = 50 * j + 20
-                let y = 100 * i + 25
+                let y = 100 * i + 35
                 let p = new Pac(this.game)
                 p.x = x
                 p.y = y
@@ -71,6 +142,5 @@ class Scene extends GameScene {
     }
     update() {
         super.update()
-
     }
 }

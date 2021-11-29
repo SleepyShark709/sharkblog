@@ -2,13 +2,19 @@ class Man extends GameImage{
     constructor(game) {
         super(game, 'man');
         this.game = game
-        // this.texture = game.textureByName('man2')
-        // this.x = 0
-        // this.y = 0
-        // this.w = this.texture.width
-        // this.h = this.texture.height
+        this.frames = []
+        for (let i = 0; i < 3; i++) {
+            let name = `m${i}`
+            let t = game.textureByName(name)
+            this.frames.push(t)
+        }
+        this.texture = this.frames[0]
+        this.frameIndex = 0
+        this.frameCount = 1
+        this.w = this.texture.width
+        this.h = this.texture.height
         this.rotation = 0
-        this.flipX = false
+        this.flipY = false
         this.couldLeft = true
         this.couldRight = true
         this.setup()
@@ -25,7 +31,12 @@ class Man extends GameImage{
         // if (this.speed <= 0) {
         //     this.speed = 10
         // }
-
+        this.frameCount--
+        if (this.frameCount === 0) {
+            this.frameCount = 3
+            this.frameIndex = (this.frameIndex + 1) % this.frames.length
+            this.texture = this.frames[this.frameIndex]
+        }
         this.pengzhuang()
     }
     moveLeft() {
@@ -39,8 +50,10 @@ class Man extends GameImage{
             if (this.x < 0) {
                 this.x = 0
             }
+            this.flipY = true
             this.rotation = 180
         }
+
     }
     moveRight() {
         if (this.pengzhuangToBlock(1)) {
@@ -56,6 +69,7 @@ class Man extends GameImage{
             this.rotation = 0
             this.couldLeft = true
         }
+        this.flipY = false
     }
     moveUp() {
         if (this.pengzhuangToBlock(2)) {
@@ -67,6 +81,8 @@ class Man extends GameImage{
             this.y = 0
         }
         this.rotation = -90
+        this.flipY = false
+
     }
     moveDown() {
         if (this.pengzhuangToBlock(3)) {
@@ -78,6 +94,7 @@ class Man extends GameImage{
         if (this.y > 512 - this.h) {
             this.y = 512 - this.h
         }
+        this.flipY = false
     }
     draw() {
         let context = this.game.context
@@ -85,8 +102,8 @@ class Man extends GameImage{
         let w2 = this.w / 2
         let h2 = this.h / 2
         context.translate(this.x + w2, this.y + h2)
-        if (this.flipX) {
-            context.scale(-1, 1)
+        if (this.flipY) {
+            context.scale(1, -1)
         }
         context.rotate(this.rotation * Math.PI / 180)
         context.translate(-w2, -h2)
