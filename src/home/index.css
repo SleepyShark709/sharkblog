@@ -1,0 +1,196 @@
+h2 {
+    margin: 0;
+}
+h3 {
+    margin: 0;
+}
+.home-header {
+    background: url("/src/images/bg.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 800px;
+    width: 100%;
+}
+
+.home-style-banner {
+    padding: 20em 4em 0 6em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-style-banner h1 {
+    color: #fff;
+    font-size: 5em;
+    letter-spacing: 0.5px;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.home-style-banner p {
+    font-size: 2.5em;
+    color: #fff;
+    letter-spacing: 2px;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.home-about {
+    /*background: url("/src/images/2.jpg") no-repeat center;*/
+    /*background-color: rgb(238,239,254);*/
+    background-size: cover;
+    width: 100%;
+}
+.home-section {
+    margin: 10px 0;
+    min-height: 600px;
+    height: 700px;
+    width: 100%;
+}
+
+.home-about-container {
+    padding: 48px;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.home-about-container-title {
+    color: #ad1a0a;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+    font-weight: 600;
+    text-align: center;
+}
+
+.home-about-container-content {
+    margin-top: 3rem;
+    display: flex;
+    padding-top: 1rem;
+}
+
+.home-about-container-content-left {
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+
+.home-bottom {
+    background: url("/src/images/4.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 500px;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.law {
+    text-align: left;
+    color: #666;
+    font-size: 1rem;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.home-footer {
+    background-color: rgb(245,245,247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*width: 30%;*/
+}
+
+.home-footer-container {
+    width: 50%;
+}
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
+    /*margin: 0 auto;*/
+}
+.home-block {
+    margin: 10px;
+    width: 900px;
+    height: 600px;
+    background-color: rgb(251,251,253);
+}
+.section-title {
+    font-size: 3.5rem;
+    line-height: 1.07143;
+    font-weight: 600;
+    margin-top: 20px;
+    letter-spacing: 0;
+}
+.section-small-title {
+    font-size: 28px;
+    line-height: 1.10722;
+    font-weight: 400;
+    letter-spacing: 0.004em;
+    margin-top: 10px;
+}
+.navigator-bar {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    background-color: rgb(51,51,51);
+    width: 100%;
+    z-index: 1;
+}
+.navigator-bar-buttons {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+@media screen and (max-width: 500px){
+    .navigator-bar-buttons {
+        margin-left: 10px;
+    }
+    .logo-a {
+        /*width: 2rem;*/
+        /*height: 2rem;*/
+        padding: 1rem !important;
+    }
+}
+.navigator-bar-a {
+    color: #f5f5f7;
+    font-size: 14px;
+    line-height: 44px;
+    font-weight: 400;
+    display: inline-block;
+    padding: 0 8px;
+    height: 44px;
+    opacity: 0.8;
+    white-space: nowrap;
+    text-decoration:none;
+
+}
+.logo-a {
+    background: url("/src/images/logo.png") no-repeat center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    object-fit: contain;
+    margin-right: 30px;
+    /*background-color: #000000;*/
+    /*color: #333;*/
+}
+.section-detail {
+    font-size: 21px;
+    line-height: 1.381;
+    font-weight: 400;
+    letter-spacing: 0.011em;
+}
+.section-detail-a::after{
+    font-family: "SF Pro Icons", serif;
+    content: "";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+}

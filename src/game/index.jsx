@@ -26,7 +26,6 @@ const Game = () => {
             <img className={"game-body"} style={{left: `${left}%`}} src={CDR} alt=""/>
             {food.map((e, index) => {
                     return <img src={Dou} style={{right: `${2.8 + 10 * index}%`}} key={index} className={"game-circle"} alt={'dou'}/>
-
             })}
             <div>
             </div>

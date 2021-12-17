@@ -1,36 +1,29 @@
-import './App.css';
-import Game from './game/index'
-import {useState} from "react";
+import React, {Component} from 'react'
+// import a as b from module 相当于给 a 模块起了一个别名 b,
+// 这样在其他地方使用可以直接使用 b 这个变量名
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
 
-function App() {
-  const [label, setLabel ] = useState(0)
-  const gameEnter = () => {
-    let canvas = document.querySelector('#id-canvas-container')
-    if (label === 0) {
-      canvas.style.display = 'unset'
-      setLabel(1)
-    } else {
-      canvas.style.display = 'none'
-      setLabel(0)
-    }
-  }
+import Home from "./home";
+import TodoList from './todoList';
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <div className={"breath"}>❤</div>
-        <p>
-          ❤我爱豆豆❤
-        </p>
+const App = () => {
+    let routes = useRoutes([
         {
-          label === 0 ? <Game /> : null
-        }
-        {/*label 为 0 的时候是进入游戏（关闭中），为 1 的时候是关闭游戏（游戏中）*/}
-        <button style={label === 1 ? {marginTop: '100px'} : null} onClick={gameEnter} id={"game-enter"}>{label === 0 ? '进入游戏' : '关闭游戏'}</button>
-      </header>
-    </div>
-  );
+            path: "/", element: <Home/>
+        },
+        {
+            path: "/todolist", element: <TodoList/>
+        },
+    ])
+    return routes
 }
 
-export default App;
+const AppWrapper = () => {
+    return(
+        <Router>
+            <App/>
+        </Router>
+    )
+}
+
+export default AppWrapper
