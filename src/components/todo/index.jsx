@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 import 'antd/dist/antd.css'
 import './index.css'
 import axios from "axios";
-axios.defaults.baseURL = 'http://http://49.232.151.150:8000/api/todo'
+axios.defaults.baseURL = 'http://49.232.151.150:8000/api/todo'
 
 const Todo = () => {
     const [title, setTitle] = useState('')
