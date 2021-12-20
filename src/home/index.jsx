@@ -1,17 +1,16 @@
 import './index.css'
-import GiftImage from '../images/1.png'
-import Logo from '../images/logo.png'
+import PictureWall from "../components/pictureWall";
 import Todo from '../components/todo/index'
 const Home = () => {
     return(
         <div style={{backgroundColor: '#ffffff'}}>
             <div className={"navigator-bar"}>
                 <div className={"navigator-bar-buttons"}>
-                    <a className={"navigator-bar-a logo-a"} href="#首页"></a>
+                    <a className={"navigator-bar-a logo-a"} href="#首页"/>
                     <a className={"navigator-bar-a"} href="#大事件">大事件记录</a>
                     <a className={"navigator-bar-a"} href="#游戏">游戏</a>
                     <a className={"navigator-bar-a"} href="#section3">about</a>
-                    <a className={"navigator-bar-a"} href="#section4">about</a>
+                    <a className={"navigator-bar-a"} href="#照片墙">照片墙</a>
                 </div>
             </div>
             <div className={"home-header"} id={"首页"}>
@@ -28,7 +27,7 @@ const Home = () => {
                 </div>
                 <Todo />
             </div>
-            <div className={"home-section"} id={"游戏"} style={{backgroundColor: "rgb(251,251,253)", height: '730px'}}>
+            <div className={"home-section"} id={"游戏"} style={{backgroundColor: "rgb(246 246 249)", height: '730px'}}>
                 <div className="home-style-banner" style={{paddingTop: '3rem'}}>
                     <h2 className={"section-title"} style={{color: "#333"}}>吃豆人游戏</h2>
                     <h3 className={"section-small-title"} style={{color: "#333"}}>吃掉那些豆子，试着去完成关卡</h3>
@@ -39,13 +38,8 @@ const Home = () => {
                 </div>
             </div>
             <div className={"home-section"} id={"section3"} style={{backgroundColor: "rgb(53,40,60)"}}></div>
-            <div className={"home-section block-container"} id={"section4"}>
-                <div className={"home-block"}></div>
-                <div className={"home-block"}></div>
-                <div className={"home-block"}></div>
-                <div className={"home-block"}></div>
-                <div className={"home-block"}></div>
-                <div className={"home-block"}></div>
+            <div id="照片墙">
+                <PictureWall />
             </div>
             <div className={"home-footer"}>
                 <div className={"home-footer-container"}>

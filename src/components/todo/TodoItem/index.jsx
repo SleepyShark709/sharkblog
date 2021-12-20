@@ -64,16 +64,16 @@ const TodoItem = (props) => {
     const normalList = (
         <div className={"todo-item-content-container"}>
             <div className={"todo-input-item"}>
-                <span>时间日期：</span>
-                <div>{date}</div>
+                <span className={"todo-input-item-title"}>时间日期：</span>
+                <div className={"todo-input-item-text"}>{date}</div>
             </div>
             <div className={"todo-input-item"}>
-                <span>标题：</span>
-                <div>{title}</div>
+                <span className={"todo-input-item-title"}>标题：</span>
+                <div className={"todo-input-item-text"}>{title}</div>
             </div>
             <div className={"todo-input-item"}>
-                <span>详情：</span>
-                <div>{detail}</div>
+                <span className={"todo-input-item-title"}>详情：</span>
+                <div className={"todo-input-item-text"}>{detail}</div>
             </div>
         </div>
     )
@@ -99,27 +99,9 @@ const TodoItem = (props) => {
         <div>
             <div className={"todo-item-container"}>
                 {editState === true ? editList : normalList}
-                {/*<div className={"todo-item-content-container"}>*/}
-                {/*    <div>*/}
-                {/*        <span>时间日期：</span>*/}
-                {/*        <div>{date}</div>*/}
-                {/*    </div>*/}
-                {/*    <div>*/}
-                {/*        <span>标题：</span>*/}
-                {/*        <div>{title}</div>*/}
-                {/*    </div>*/}
-                {/*    <div>*/}
-                {/*        <span>详情：</span>*/}
-                {/*        <div>{detail}</div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 {
                     editState === true ? editButton : norMalButton
                 }
-                {/*<div className={"todo-item-buttons"}>*/}
-                {/*    <Button className={"todo-item-button"}>编辑</Button>*/}
-                {/*    <Button className={"todo-item-button"} onClick={onDelete} danger>删除</Button>*/}
-                {/*</div>*/}
             </div>
         </div>
     )

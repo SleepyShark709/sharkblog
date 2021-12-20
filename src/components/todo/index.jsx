@@ -1,4 +1,4 @@
-import {Input, Button, message} from 'antd'
+import {Input, Button, message, Spin} from 'antd'
 import {useEffect, useState} from "react";
 import TodoItem from "./TodoItem";
 import 'antd/dist/antd.css'
@@ -11,16 +11,19 @@ const Todo = () => {
     const [date, setDate] = useState('')
     const [detail, setDetail] = useState('')
     const [data, setData] = useState([])
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         getAllData()
     }, [])
 
     const getAllData = () => {
+        setLoading(true)
         axios.get('/all').then(res => {
             let d = res.data
             console.log('d is', d)
             setData(d)
+            setLoading(false)
         })
     }
 
@@ -56,6 +59,9 @@ const Todo = () => {
 
     return (
         <div className={"todo-container"}>
+            {isLoading ? <div className={"todo-loading-container"}>
+                <Spin size={"large"}/>
+            </div> : null}
             {/*渲染框*/}
             <ul>
                 {(data.length > 5 ? data.slice(0, 5) : data).map(t => (

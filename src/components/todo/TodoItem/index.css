@@ -21,3 +21,12 @@
 .todo-item-button {
     margin: 0 5px;
 }
+.todo-input-item-title {
+    font-size: 12px;
+    color: #666666;
+}
+.todo-input-item-text {
+    font-size: 16px;
+    color: #333;
+    font-weight: bolder;
+}
