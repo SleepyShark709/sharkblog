@@ -1,7 +1,35 @@
 import './index.css'
 import PictureWall from "../components/pictureWall";
 import Todo from '../components/todo/index'
+import {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+    console.log('当前的环境', process.env.NODE_ENV)
+    let navigate = useNavigate();
+    const os = function () {
+        let ua = navigator.userAgent,
+            isWindowsPhone = /(?:Windows Phone)/.test(ua),
+            isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+            isAndroid = /(?:Android)/.test(ua),
+            isFireFox = /(?:Firefox)/.test(ua),
+            isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+            isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+            isPc = !isPhone && !isAndroid && !isSymbian;
+        return {
+            isTablet: isTablet,
+            isPhone: isPhone,
+            isAndroid: isAndroid,
+            isPc: isPc
+        };
+    }
+
+    useEffect(() => {
+        let { isPc } = os()
+        if (!isPc) {
+            navigate("/mobilehome");
+        }
+    }, [])
     return(
         <div style={{backgroundColor: '#ffffff'}}>
             <div className={"navigator-bar"}>
@@ -48,7 +76,7 @@ const Home = () => {
                         <hr/>
                     </div>
                     <div className={"home-footer-container"}>
-                        <div className={"law"}>京ICP备2021037656号-1</div>
+                        <a className={"law"} href={"https://beian.miit.gov.cn/"}>京ICP备2021037656号-1</a>
                     </div>
                 </div>
 

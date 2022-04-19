@@ -1,10 +1,9 @@
 import {Input, Button, message, Spin} from 'antd'
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import TodoItem from "./TodoItem";
 import 'antd/dist/antd.css'
 import './index.css'
 import axios from "axios";
-axios.defaults.baseURL = 'http://49.232.151.150:8000/api/todo'
 
 const Todo = () => {
     const [title, setTitle] = useState('')
@@ -12,6 +11,8 @@ const Todo = () => {
     const [detail, setDetail] = useState('')
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(false)
+
+    const todoContainer = useRef()
 
     useEffect(() => {
         getAllData()
@@ -21,7 +22,9 @@ const Todo = () => {
         setLoading(true)
         axios.get('/all').then(res => {
             let d = res.data
-            console.log('d is', d)
+            if (!todoContainer) {
+                return
+            }
             setData(d)
             setLoading(false)
         })
@@ -33,11 +36,9 @@ const Todo = () => {
             title,
             detail
         }
-        console.log(o)
         axios.post('/add', o).then(res => {
             message.success('爱情信息已记录')
             getAllData()
-            console.log('res is', res)
         })
     }
 
@@ -58,7 +59,7 @@ const Todo = () => {
 
 
     return (
-        <div className={"todo-container"}>
+        <div className={"todo-container"} ref={todoContainer}>
             {isLoading ? <div className={"todo-loading-container"}>
                 <Spin size={"large"}/>
             </div> : null}

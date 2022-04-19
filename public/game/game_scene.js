@@ -12,7 +12,6 @@ class GameScene {
     addElement(img) {
         img.scene = this
         this.elements.push(img)
-        console.log('this.element', this.elements)
     }
     addPacElements(imgs) {
         for (let img of imgs) {

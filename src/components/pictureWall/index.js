@@ -9,7 +9,6 @@ import './index.css'
 const PictureWall = () => {
     const [arr, setArr] = useState([])
     useEffect(() => {
-        console.log('files is', p1)
         let arr = [p1, p2, p3, p4, p5, p6]
         setArr(arr)
     }, [])

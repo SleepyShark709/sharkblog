@@ -9,7 +9,6 @@ const Game = () => {
     useEffect(() => {
         let l = left
         let f = food
-        console.log('123')
         f = f.slice(0, f.length - 1)
         l += 10
         if (l > 95) {

@@ -10,7 +10,6 @@ const TodoList = () => {
     const getAllData = () => {
         axios.get('/all').then(res => {
             let d = res.data
-            console.log('d is', d)
             setData(d)
         })
     }

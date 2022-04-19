@@ -20,7 +20,6 @@ const TodoItem = (props) => {
     const onDelete = () => {
         let id = props.data.id
         axios.get(`/delete/${id}`).then(res => {
-            console.log('res is', res)
         })
         if (props.onChange) {
             props.onChange()

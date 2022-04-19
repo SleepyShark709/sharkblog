@@ -4,12 +4,24 @@ import React, {Component} from 'react'
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
 
 import Home from "./home";
+import MobileHome from './mobile/home'
 import TodoList from './todoList';
+import axios from "axios";
+
 
 const App = () => {
+    console.log('当前的环境', process.env.NODE_ENV)
+    axios.defaults.baseURL = 'http://localhost:8000/api/todo'
+    if (process.env.NODE_ENV === 'production') {
+        axios.defaults.baseURL = 'http://49.232.151.150:8000/api/todo'
+    }
     let routes = useRoutes([
         {
             path: "/", element: <Home/>
+        },
+        {
+            path: "/mobileHome", element: <MobileHome/>
+
         },
         {
             path: "/todolist", element: <TodoList/>
